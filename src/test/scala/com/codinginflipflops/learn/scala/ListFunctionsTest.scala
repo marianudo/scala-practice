@@ -53,4 +53,32 @@ class ListFunctionsTest extends FlatSpec {
       take(Nil, 1)
     }
   }
+
+  "Drop(3)" should "drop the first 3 elements in a 5 elements list" in {
+    assert (List(4, 5) == drop(List(1, 2, 3, 4, 5), 3))
+  }
+
+  "Drop(1)" should "return Nil on a single element list" in {
+    assert (Nil == drop(List(5), 1))
+  }
+
+  "Drop(3)" should "return Nil on a 3 elements list" in {
+    assert (Nil == drop(List(1, 2, 3), 3))
+  }
+
+  "Drop(3)" should "return the last element of a 4 elements list" in {
+    assert (List(4) == drop(List(1, 2, 3, 4), 3))
+  }
+
+  "Drop(n)" should "throw an exception when invoked on Nil" in {
+    intercept[RuntimeException] {
+      drop(Nil, 1)
+    }
+  }
+
+  "Drop(n)" should "throw an exception when invoked on a less than n elements list" in {
+    intercept[RuntimeException] {
+      drop(List(1, 2, 3), 4)
+    }
+  }
 }
