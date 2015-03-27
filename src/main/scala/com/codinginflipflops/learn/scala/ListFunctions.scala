@@ -35,7 +35,10 @@ object ListFunctions {
   }
 
   def reverse(ls: List[Int]): List[Int] = {
-    if(ls.isEmpty) ls
-    else last(ls) :: reverse(take(ls, ls.length - 1))
+    def aux(sourceList: List[Int], outputList: List[Int]): List[Int] = {
+      if(sourceList.isEmpty) outputList
+      else aux(take(sourceList, sourceList.length - 1), outputList ::: List(last(sourceList) ))
+    }
+    aux(ls, Nil)
   }
 }
