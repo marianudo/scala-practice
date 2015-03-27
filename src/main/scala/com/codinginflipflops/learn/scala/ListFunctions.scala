@@ -19,14 +19,13 @@ object ListFunctions {
       if (growingList.length == numberOfElements) growingList
       else aux(sourceList.tail, growingList ++ List(sourceList.head))
     }
-    aux(ls, Nil)
+    if(ls.isEmpty) return Nil
+    if(ls.length < numberOfElements) ls
+    else aux(ls, Nil)
   }
 
   def drop(ls: List[Int], numberOfElements: Int): List[Int] = {
-    def aux(shrinkingList: List[Int], elementsDropedSoFar: Int): List[Int] = {
-      if(elementsDropedSoFar == numberOfElements) shrinkingList
-      else aux(shrinkingList.tail, elementsDropedSoFar + 1)
-    }
-    aux(ls, 0)
+    if(numberOfElements == 0) ls
+    else drop(ls.tail, numberOfElements - 1)
   }
 }

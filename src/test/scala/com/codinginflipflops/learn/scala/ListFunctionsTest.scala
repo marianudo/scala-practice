@@ -44,14 +44,20 @@ class ListFunctionsTest extends FlatSpec {
     assert (List(2) == take(List(2), 1))
   }
 
+  "Take(3)" should "return the input list when applied to a 3 elements list" in {
+    assert (List(1, 2, 3) == take(List(1, 2, 3), 3))
+  }
+
   "Take(0)" should "return Nil on a non-empty list" in {
     assert (Nil == take(List(1, 2, 3), 0))
   }
 
-  "Take(n)" should "throw an exception on an empty list" in {
-    intercept[RuntimeException] {
-      take(Nil, 1)
-    }
+  "Take(5)" should "return the input list when invoked on a less than five elements list" in {
+    assert (List(1, 2, 3) == take(List(1, 2, 3), 5))
+  }
+
+  "Take(n)" should "return Nil when invoked on an empty list" in {
+    assert (Nil == take(Nil, 3))
   }
 
   "Drop(3)" should "drop the first 3 elements in a 5 elements list" in {
@@ -80,5 +86,9 @@ class ListFunctionsTest extends FlatSpec {
     intercept[RuntimeException] {
       drop(List(1, 2, 3), 4)
     }
+  }
+
+  "Drop(0)" should "return the input list" in {
+    assert (List(1, 2, 3) == drop(List(1, 2, 3), 0))
   }
 }
