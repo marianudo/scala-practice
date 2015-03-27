@@ -75,4 +75,9 @@ object ListFunctions {
     if (ls.isEmpty) true
     else p(ls.head) && forAll(ls.tail, p)
   }
+
+  def forAllWithFilter(ls: List[Int], p: Int => Boolean): Boolean = {
+    if (ls == filter(ls, p)) true
+    else false
+  }
 }
