@@ -129,4 +129,8 @@ class ListFunctionsTest extends FlatSpec {
     assert(!forAllWithFilter(List(2, 4, 6, 7), p))
   }
 
+  "exists" should "tell us if there's at least one element in a list that satisfies a predicate" in {
+    assert (exists(List(1, 3, 5, 6), x => x % 2 == 0))
+    assert (!exists(List(1, 3, 5), x => x % 2 == 0))
+  }
 }

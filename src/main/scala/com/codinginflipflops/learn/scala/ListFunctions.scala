@@ -80,4 +80,9 @@ object ListFunctions {
     if (ls == filter(ls, p)) true
     else false
   }
+
+  def exists(ls: List[Int], p: Int => Boolean): Boolean = {
+    if (ls.filter(p).isEmpty) false
+    else true
+  }
 }
