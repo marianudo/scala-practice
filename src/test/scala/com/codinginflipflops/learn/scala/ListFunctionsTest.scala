@@ -109,4 +109,8 @@ class ListFunctionsTest extends FlatSpec {
     assert (List(1, 2, 3, 4) == reverse(List(4, 3, 2, 1)))
   }
 
+  "Map" should "transform an input list in some way" in {
+    assert (List(1, 4, 9) == map(List(1, 2, 3), x => x * x))
+  }
+
 }

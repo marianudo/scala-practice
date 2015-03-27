@@ -46,4 +46,9 @@ object ListFunctions {
     }
     aux(ls, Nil)
   }
+
+  def map(ls: List[Int], f: Int => Int): List[Int] = {
+    if (ls.isEmpty) Nil
+    else f(ls.head) :: map(ls.tail, f)
+  }
 }
