@@ -28,4 +28,9 @@ object ListFunctions {
     if(numberOfElements == 0) ls
     else drop(ls.tail, numberOfElements - 1)
   }
+
+  def zip(l1: List[Int], l2: List[Int]): List[(Int, Int)] = {
+    if(l1.isEmpty || l2.isEmpty) Nil
+    else (l1.head, l2.head) :: zip(l1.tail, l2.tail)
+  }
 }

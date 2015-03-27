@@ -91,4 +91,18 @@ class ListFunctionsTest extends FlatSpec {
   "Drop(0)" should "return the input list" in {
     assert (List(1, 2, 3) == drop(List(1, 2, 3), 0))
   }
+
+  "Zip" should "zip two non-empty, equally sized lists" in {
+    assert (List((1, 2), (3, 4)) == zip(List(1, 3), List(2, 4)))
+  }
+
+  "Zip" should "return Nil of either of the 2 lists are empty" in {
+    assert (Nil == zip(List(), List(1, 2)))
+    assert (Nil == zip(List(1, 2), List()))
+  }
+
+  "Zip" should "zip two non-empty different size lists truncating the longer one" in {
+    assert (List((1, 2), (3, 4)) == zip(List(1, 3, 5), List(2, 4)))
+  }
+
 }
