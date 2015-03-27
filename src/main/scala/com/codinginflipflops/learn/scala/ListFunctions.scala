@@ -33,7 +33,7 @@ object ListFunctions {
     //    if(l1.isEmpty || l2.isEmpty) Nil
     //    else (l1.head, l2.head) :: zip(l1.tail, l2.tail)
     def aux(l1: List[Int], l2: List[Int], output: List[(Int, Int)]): List[(Int, Int)] = {
-      if(l1.isEmpty || l2.isEmpty) output
+      if (l1.isEmpty || l2.isEmpty) output
       else aux(l1.tail, l2.tail, output ::: List((l1.head, l2.head)))
     }
     aux(l1, l2, Nil)
@@ -48,7 +48,12 @@ object ListFunctions {
   }
 
   def map(ls: List[Int], f: Int => Int): List[Int] = {
-    if (ls.isEmpty) Nil
-    else f(ls.head) :: map(ls.tail, f)
+    //    if (ls.isEmpty) Nil
+    //    else f(ls.head) :: map(ls.tail, f)
+    def aux(sourceList: List[Int], outputList: List[Int]): List[Int] = {
+      if (sourceList.isEmpty) outputList
+      else aux(sourceList.tail, outputList ::: List(f(sourceList.head)))
+    }
+    aux(ls, Nil)
   }
 }
