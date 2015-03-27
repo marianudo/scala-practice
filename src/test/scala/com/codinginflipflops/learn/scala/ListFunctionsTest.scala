@@ -113,4 +113,8 @@ class ListFunctionsTest extends FlatSpec {
     assert (List(1, 4, 9) == map(List(1, 2, 3), x => x * x))
   }
 
+  "Filter" should "remove the elements that doesn't satisfy the predicate" in {
+    assert (List(1, 3, 5) == filter(List(1, 2, 3, 4, 5, 6), x => x % 2 != 0))
+  }
+
 }

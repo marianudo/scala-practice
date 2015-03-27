@@ -56,4 +56,12 @@ object ListFunctions {
     }
     aux(ls, Nil)
   }
+
+  def filter(ls: List[Int], f: Int => Boolean): List[Int] = {
+    if (ls.isEmpty) Nil
+    else {
+      if (f(ls.head)) ls.head :: filter(ls.tail, f)
+      else filter(ls.tail, f)
+    }
+  }
 }
