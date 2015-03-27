@@ -70,4 +70,9 @@ object ListFunctions {
     }
     aux(ls, Nil)
   }
+
+  def forAll(ls: List[Int], p: Int => Boolean): Boolean = {
+    if (ls.isEmpty) true
+    else p(ls.head) && forAll(ls.tail, p)
+  }
 }

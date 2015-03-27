@@ -117,4 +117,10 @@ class ListFunctionsTest extends FlatSpec {
     assert (List(1, 3, 5) == filter(List(1, 2, 3, 4, 5, 6), x => x % 2 != 0))
   }
 
+  "forAll" should "tell us if all the elements in a list satisfy a predicate" in {
+    assert (forAll(List(2, 4, 6), x => x % 2 == 0))
+    val p: (Int) => Boolean = x => x % 2 == 0
+    assert (!forAll(List(2, 4, 6, 7), p))
+  }
+
 }
