@@ -85,4 +85,12 @@ object ListFunctions {
     if (ls.filter(p).isEmpty) false
     else true
   }
+
+  def sum(ls: List[Int]): Int = {
+    def aux(source: List[Int], acc: Int): Int = {
+      if (source.tail.isEmpty) acc + source.head
+      else aux(source.tail, acc + source.head)
+    }
+    aux(ls, 0)
+  }
 }

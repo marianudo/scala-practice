@@ -133,4 +133,8 @@ class ListFunctionsTest extends FlatSpec {
     assert (exists(List(1, 3, 5, 6), x => x % 2 == 0))
     assert (!exists(List(1, 3, 5), x => x % 2 == 0))
   }
+
+  "Sum" should "sum all the numbers in a list" in {
+    assert (15 == sum(List(1, 2, 3, 4, 5)))
+  }
 }
