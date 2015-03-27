@@ -105,4 +105,8 @@ class ListFunctionsTest extends FlatSpec {
     assert (List((1, 2), (3, 4)) == zip(List(1, 3, 5), List(2, 4)))
   }
 
+  "Reverse" should "turn a list inside out" in {
+    assert (List(1, 2, 3, 4) == reverse(List(4, 3, 2, 1)))
+  }
+
 }

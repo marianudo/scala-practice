@@ -33,4 +33,9 @@ object ListFunctions {
     if(l1.isEmpty || l2.isEmpty) Nil
     else (l1.head, l2.head) :: zip(l1.tail, l2.tail)
   }
+
+  def reverse(ls: List[Int]): List[Int] = {
+    if(ls.isEmpty) ls
+    else last(ls) :: reverse(take(ls, ls.length - 1))
+  }
 }
